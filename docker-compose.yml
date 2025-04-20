@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: java-app
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PROFILE=${PROFILE}
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+      - SPRING_DATASOURCE_URL=${DB_URL}
+      - SPRING_DATASOURCE_USERNAME=${DB_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PWD}
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=${DB_DRIVER}
+      - SPRING_FLW_ENABLED=true
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
