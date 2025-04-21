@@ -3,7 +3,7 @@ name: Continuous Integration Umbl
 on:
   pull_request:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
