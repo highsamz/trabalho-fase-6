@@ -39,8 +39,9 @@ public class PontoColetaController {
 
     @PutMapping("/atualizar/coleta")
             @Transactional
-    void putColeta(@RequestBody @Valid AtualizarPontoColeta pontoColeta){
+    AtualizarPontoColeta putColeta(@RequestBody @Valid AtualizarPontoColeta pontoColeta){
         pontoColetaService.updatePontoColeta(pontoColeta);
+        return pontoColeta;
     }
 
     @DeleteMapping("/excluir/coleta/{id}")
